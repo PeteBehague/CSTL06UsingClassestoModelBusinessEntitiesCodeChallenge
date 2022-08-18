@@ -13,7 +13,7 @@ If you do this correctly, almost no code will need to be altered in the ```Lendi
 expectedBalance = Member.ChildOutstandingFineLimit;
 ```
 
-It would make sense to put the ChildOutstandingBalance property in the specialised JuniorMember class, given only child members have an upper limit on any fines they may need to pay. It would also make sense to rename the property to be ‘OutstandingFineLimit’ (dropping the word ‘Child’).
+It would make sense to put the static ChildOutstandingBalance property in the specialised JuniorMember class, given only child members have an upper limit on any fines they may need to pay. It would also make sense to rename the property to be ‘OutstandingFineLimit’ (dropping the word ‘Child’).
 
 # Tasks
 1. Expand the ```LendingLibrary.Code``` project so you can see the folders and files within. 
@@ -33,14 +33,14 @@ It would make sense to put the ChildOutstandingBalance property in the specialis
 -  Comment out the code in ```Member1.cs```
 - Add code to the AdultMember and JuniorMember classes such that they inherit from Member and implement whatever is necessary
 -  add appropriate code to the Borrow, PayFine, and NewFine methods in both the AdultMember and JuniorMember classes
--  Make sure the JuniorMember class has an OutstandingFineLimit property (keeping the default limit of £15.00)
--  Adjust the logic in the ```LendingLibrary.UI``` and ```LendingLibrary.Tests``` projects so the following line:
+-  Make sure the JuniorMember class has a static OutstandingFineLimit property (keeping the default limit of £15.00)
+-  Adjust the relevant logic in the ```Program.cs``` file in the```LendingLibrary.UI``` and ```MemberUnitTests.cs``` file in the ```LendingLibrary.Tests``` projects so the following line:
 ```
 expectedBalance = Member.ChildOutstandingFineLimit
 ```
 Becomes:
 ```
-expectedBalance = ChildMember.OutstandingFineLimit
+expectedBalance = JuniorMember.OutstandingFineLimit
 ```
 
 7. Run the ```LendingLibrary.UI``` and/or the ```LendingLibrary.Tests``` projects and ensure the logic works as before.
